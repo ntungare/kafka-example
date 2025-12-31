@@ -1,0 +1,13 @@
+@namespace("com.example.kafka.avro.queue1")
+
+protocol Queue1 {
+
+    import idl "common.avdl";
+
+    record Queue1Message {
+
+        array<com.example.kafka.avro.common.Message> messages;
+
+        timestamp_ms dateTime;
+    }
+}

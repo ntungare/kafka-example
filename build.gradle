@@ -1,0 +1,14 @@
+description = 'Example project with one kafka producer and multiple producers'
+
+allprojects {
+	group = 'com.example.kafka'
+	version = '0.0.1-SNAPSHOT'
+}
+
+subprojects {
+
+	repositories {
+		mavenCentral()
+	}
+
+}

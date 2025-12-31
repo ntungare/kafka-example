@@ -1,0 +1,16 @@
+plugins {
+    id 'java-library'
+    id 'com.github.davidmc24.gradle.plugin.avro' version 'latest.release'
+}
+
+description = 'Example sub-project with avdl files that codegen into Java Classes'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+dependencies {
+    implementation 'org.apache.avro:avro:' + avroVersion
+}

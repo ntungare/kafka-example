@@ -1,0 +1,22 @@
+@namespace("com.example.kafka.avro.common")
+
+protocol Common {
+    record Message {
+        /**
+         * Message Id
+         */
+        uuid messageId;
+        /**
+         * Optional message title.
+         */
+        string? title = null;
+        /**
+         * The message.
+         */
+        string message;
+        /**
+         * When the message was created.
+         */
+        timestamp_ms dateTime;
+    }
+}
