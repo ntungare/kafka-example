@@ -1,16 +1,24 @@
 plugins {
     id 'java-library'
-    id 'com.github.davidmc24.gradle.plugin.avro' version 'latest.release'
+    alias(libs.plugins.avro)
 }
 
 description = 'Example sub-project with avdl files that codegen into Java Classes'
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(25)
+        languageVersion = JavaLanguageVersion.of(libs.versions.java.get())
     }
 }
 
 dependencies {
-    implementation 'org.apache.avro:avro:' + avroVersion
+    implementation(libs.avro)
+    constraints {
+        implementation(libs.commons.lang3) {
+            version {
+                require(libs.versions.constraint.commons.lang3.get())
+            }
+            because("versions below have known security vulnerabilities")
+        }
+    }
 }

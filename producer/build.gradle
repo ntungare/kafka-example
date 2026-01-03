@@ -1,14 +1,14 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version 'latest.release'
-	id 'io.spring.dependency-management' version 'latest.release'
+	alias(libs.plugins.spring.boot)
+	alias(libs.plugins.spring.dependency.management)
 }
 
 description = 'Example sub-project with a Kafka Producer that writes to multiple topics'
 
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(25)
+		languageVersion = JavaLanguageVersion.of(libs.versions.java.get())
 	}
 }
 
@@ -19,19 +19,19 @@ configurations {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	implementation(libs.spring.boot.actuator)
+	annotationProcessor(libs.spring.boot.configuration.processor)
+	testRuntimeOnly(libs.junit.platform.launcher)
 
-	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
-	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
+	implementation(libs.spring.boot.webmvc)
+	testImplementation(libs.spring.boot.webmvc.test)
 
-	implementation project(':schemas')
-	implementation 'org.springframework.boot:spring-boot-starter-kafka'
-	testImplementation 'org.springframework.boot:spring-boot-starter-kafka-test'
+	implementation(project(':schemas'))
+	implementation(libs.spring.boot.kafka)
+	testImplementation(libs.spring.boot.kafka.test)
 
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
+	compileOnly(libs.lombok)
+	annotationProcessor(libs.lombok)
 }
 
 tasks.named('test') {

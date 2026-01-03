@@ -1,0 +1,32 @@
+[versions]
+java = "25"
+spring-boot = "latest.release"
+spring-dependency-management = "latest.release"
+avro-gradle-plugin = "latest.release"
+lombok = "latest.release"
+avro = "1.12.0"
+
+constraint-commons-lang3 = { strictly = "[3.18.0, 4.0[" }
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management" }
+
+avro = { id = "com.github.davidmc24.gradle.plugin.avro", version.ref = "avro-gradle-plugin" }
+
+[libraries]
+spring-boot-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
+spring-boot-configuration-processor = { module = "org.springframework.boot:spring-boot-configuration-processor" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+
+spring-boot-webmvc = { module = "org.springframework.boot:spring-boot-starter-webmvc" }
+spring-boot-webmvc-test = { module = "org.springframework.boot:spring-boot-starter-webmvc-test" }
+
+spring-boot-kafka = { module = "org.springframework.boot:spring-boot-starter-kafka" }
+spring-boot-kafka-test = { module = "org.springframework.boot:spring-boot-starter-kafka-test" }
+
+lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
+
+avro = { module = "org.apache.avro:avro", version.ref = "avro" }
+
+commons-lang3 = { module = "org.apache.commons:commons-lang3" }
